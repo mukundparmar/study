@@ -1,0 +1,15 @@
+This process is easy but keeping all steps here.
+
+1. Create the IAM user with AWS codeCommit Full access permission attached.
+2. IAM > security > add ssh public key there.
+3. Before #3 setup ssh pub/private key using ssh-keygen or use existing key.
+4. Don't be confused with SSH Key ID and IAM Key ID they both are different during setting up ~/.ssh/config.
+5. Setup the ~/.ssh/config file as below
+```
+Host git-codecommit.*.amazonaws.com
+  User XXXXYYYYZZZ
+  IdentityFile ~/.ssh/moodmd
+  AddKeysToAgent yes
+  UseKeychain yes
+```
+6. testing ssh git-codecommit.ca-central-1.amazonaws.com
