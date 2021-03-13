@@ -1,0 +1,6 @@
+#set($inputRoot = $input.path('$'))
+<xml>
+    <response>
+        <body>$inputRoot.body</body>
+    </response>
+</xml>
